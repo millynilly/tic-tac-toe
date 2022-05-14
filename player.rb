@@ -1,14 +1,14 @@
-class player
+class Player
 
-  @name
-  @symbol
-  @@order
+  # @name
+  # @symbol
+  # @@order
 
-  def initialize
-    @name = get_name
-    @symbol = choose_symbol
-    @@order += 1
-  end
+  # def initialize
+  #   @name = get_name
+  #   @symbol = choose_symbol
+  #   @@order += 1
+  # end
     
   #get_name
   #choose_symbol
