@@ -4,8 +4,9 @@ class Board
 
 
   def initialize
-    @board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
+    @board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     display
+    clear
   end
 
 
@@ -16,6 +17,7 @@ class Board
 
 
   def display
+
     @board.each_with_index do |row, ind|
       row.each_with_index do |col, ind|
         print row[ind]
@@ -23,7 +25,13 @@ class Board
       end
       puts "\n----------" unless ind == 2
     end
+
     puts "\n\n"
+  end
+
+
+  def clear
+    @board = Array.new(3) { Array.new(3, ' ') }
   end
 
 end

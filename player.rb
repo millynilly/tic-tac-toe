@@ -14,4 +14,5 @@ class Player
   #choose_symbol
   #make_move
 
+
 end

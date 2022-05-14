@@ -8,8 +8,8 @@ def play
 
   #until game.end?
 
-    #game.get_move(player)
-    game.update_board(6, 'X')
+    move = game.get_move
+    game.update_board(move)
     #game.end?
 
  # end
