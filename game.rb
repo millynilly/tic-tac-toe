@@ -15,7 +15,7 @@ class Game
 
 
   def get_move
-    print "Enter a position 1 - 9: "
+    print "Enter a position 1-9: "
     
     input = gets.chomp
     until validate(input)
@@ -43,7 +43,7 @@ class Game
 
 
   def end?
-    false
+
   end
   
   # display_result
@@ -51,9 +51,7 @@ class Game
   private
 
   def print_intro
-    puts "Tic-tac-toe
------------
-\n"
+    puts "Tic-tac-toe\n-----------\n"
   end
 
 

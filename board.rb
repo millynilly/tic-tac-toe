@@ -4,34 +4,35 @@ class Board
 
 
   def initialize
-    @board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    @board = [*1..9]
     display
     clear
   end
 
 
   def update(position, symbol)
-    @board[(position-1) / 3][(position-1) % 3] = symbol
+    @board[position - 1] = symbol
     display
   end
 
 
   def display
 
-    @board.each_with_index do |row, ind|
-      row.each_with_index do |col, ind|
-        print row[ind]
-        print ' | ' unless ind == 2
-      end
-      puts "\n----------" unless ind == 2
-    end
+    puts <<-BOARD
 
-    puts "\n\n"
+    #{@board[0]} | #{@board[1]} | #{@board[2]}
+    -----------
+    #{@board[3]} | #{@board[4]} | #{@board[5]}
+    -----------
+    #{@board[6]} | #{@board[7]} | #{@board[8]}
+
+    BOARD
+
   end
 
 
   def clear
-    @board = Array.new(3) { Array.new(3, ' ') }
+    @board = Array.new(9, ' ')
   end
 
 end
