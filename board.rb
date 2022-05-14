@@ -11,7 +11,7 @@ class Board
 
 
   def update(position, symbol)
-    @board[position / 3 - 1 ][(position-1) % 3] = symbol
+    @board[(position-1) / 3][(position-1) % 3] = symbol
     display
   end
 
