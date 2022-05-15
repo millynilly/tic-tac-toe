@@ -4,46 +4,42 @@ require_relative 'board.rb'
 
 class Game
 
-  @player
+  @player1
+  @player2
   @board
+  @moves
+
+  attr_reader :moves
+
 
   def initialize
     print_intro
-    @board = Board.new()
-    @player = 'X'
+    @board = Board.new
+    @player1 = Player.new('X')
+    @player2 = Player.new('O')
+    @player = @player1
+    @moves = 0
   end
 
 
   def get_move
-    print "Enter a position 1-9: "
-    
-    input = gets.chomp
-    until validate(input)
-      puts 'Invalid input'
-      input = gets.chomp
-    end
-
-    #Switch player
-    @player == 'x' ? 'O' : 'X'
-
-    input.to_i
+    @moves += 1
+    move = @player.make_move
   end
 
 
-  def validate(input)
-    return false unless input.to_i.to_s == input
-    return false unless input.to_i.between?(1, 9)
-    true
+  def switch_player
+    @player = @player == @player1 ? @player2 : @player1
   end
 
 
   def update_board(position)
-    @board.update(position, @player)
+    @board.update(position, @player.symbol)
   end
 
 
-  def end?
-
+  def win?
+    @player.win?
   end
   
   # display_result
