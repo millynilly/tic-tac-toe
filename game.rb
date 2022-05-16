@@ -18,7 +18,7 @@ class Game
     @board = Board.new
     @player1 = Player.new('X')
     @player2 = Player.new('O')
-    @player = @player1
+    @player = @player2
     @num_moves = 0
   end
 
@@ -43,7 +43,12 @@ class Game
     @player.win?
   end
   
-  # display_result
+  
+  def display_result
+    puts win? ? "#{@player.symbol} wins." : 'No winner.'
+  end
+
+
 
   private
 

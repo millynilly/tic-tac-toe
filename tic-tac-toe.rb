@@ -7,23 +7,17 @@ def play
   game = Game.new
 
   until game.win? || game.num_moves == 9
-
+    
+    game.switch_player
     game.get_move
     game.update_board
-    game.switch_player
 
   end
 
-  #game.display_result
-  #puts 'Play again?'
-  #play if ['y', 'Y'].include?(gets.chomp)
+  game.display_result
+  puts 'Play again?'
+  play if ['y', 'Y'].include?(gets.chomp)
+  
 end
 
 play
-
-
-
-
-      
-
-  
