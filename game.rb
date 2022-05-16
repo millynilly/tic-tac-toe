@@ -7,9 +7,10 @@ class Game
   @player1
   @player2
   @board
-  @moves
+  @num_moves
+  @move
 
-  attr_reader :moves
+  attr_reader :num_moves, :board
 
 
   def initialize
@@ -18,13 +19,13 @@ class Game
     @player1 = Player.new('X')
     @player2 = Player.new('O')
     @player = @player1
-    @moves = 0
+    @num_moves = 0
   end
 
 
   def get_move
-    @moves += 1
-    move = @player.make_move
+    @num_moves += 1
+    @move = @player.make_move(@board.board)
   end
 
 
@@ -33,8 +34,8 @@ class Game
   end
 
 
-  def update_board(position)
-    @board.update(position, @player.symbol)
+  def update_board
+    @board.update(@move, @player.symbol)
   end
 
 

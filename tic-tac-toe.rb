@@ -6,10 +6,10 @@ require_relative 'game.rb'
 def play
   game = Game.new
 
-  until game.win? || game.moves == 9
+  until game.win? || game.num_moves == 9
 
-    move = game.get_move
-    game.update_board(move)
+    game.get_move
+    game.update_board
     game.switch_player
 
   end

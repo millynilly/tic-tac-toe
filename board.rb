@@ -2,28 +2,39 @@ class Board
 
   @board
 
+  attr_reader :board
 
   def initialize
     @board = [*1..9]
-    display
+    display('', false)
     clear
   end
 
 
   def update(position, symbol)
-    @board[position - 1] = symbol
-    display
+    @board[position - 1] = position
+    display(symbol)
   end
 
 
-  def display
+  def display(symbol, xo=true)
+    xos = Array.new(9)
+
+    if xo
+      @board.each_with_index do |pos, ind|
+        xos[ind] = (pos == ' ') ? ' ' : symbol
+      end
+    else
+      xos = @board
+    end
+
     puts <<-BOARD
 
-    #{@board[0]} | #{@board[1]} | #{@board[2]}
-    -----------
-    #{@board[3]} | #{@board[4]} | #{@board[5]}
-    -----------
-    #{@board[6]} | #{@board[7]} | #{@board[8]}
+    #{xos[0]} | #{xos[1]} | #{xos[2]}
+    ---------
+    #{xos[3]} | #{xos[4]} | #{xos[5]}
+    ---------
+    #{xos[6]} | #{xos[7]} | #{xos[8]}
 
     BOARD
   end

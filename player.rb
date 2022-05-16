@@ -12,11 +12,11 @@ class Player
   end
     
 
-  def make_move
+  def make_move(board)
     print "Enter a position 1-9: "
     
     input = gets.chomp
-    until validate(input)
+    until validate(input, board)
       puts 'Invalid input'
       input = gets.chomp
     end
@@ -44,11 +44,13 @@ class Player
 
   private
 
-  def validate(input)
+  def validate(input, board)
     return false unless input.to_i.to_s == input
     return false unless input.to_i.between?(1, 9)
+    return false if board.include?(input.to_i)
     true
   end
+
 
 
 end
