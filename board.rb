@@ -1,40 +1,34 @@
 class Board
 
   @board
+  @xos
 
   attr_reader :board
 
   def initialize
     @board = [*1..9]
-    display('', false)
+    @xos = Array.new(9, ' ')
+    display(@board)
     clear
   end
 
 
   def update(position, symbol)
     @board[position - 1] = position
-    display(symbol)
+    @xos[position - 1] = symbol
+    display(@xos)
   end
 
 
-  def display(symbol, xo=true)
-    xos = Array.new(9)
-
-    if xo
-      @board.each_with_index do |pos, ind|
-        xos[ind] = (pos == ' ') ? ' ' : symbol
-      end
-    else
-      xos = @board
-    end
+  def display(board)
 
     puts <<-BOARD
 
-    #{xos[0]} | #{xos[1]} | #{xos[2]}
+    #{board[0]} | #{board[1]} | #{board[2]}
     ---------
-    #{xos[3]} | #{xos[4]} | #{xos[5]}
+    #{board[3]} | #{board[4]} | #{board[5]}
     ---------
-    #{xos[6]} | #{xos[7]} | #{xos[8]}
+    #{board[6]} | #{board[7]} | #{board[8]}
 
     BOARD
   end
