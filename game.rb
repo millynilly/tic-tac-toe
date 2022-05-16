@@ -10,8 +10,6 @@ class Game
   @num_moves
   @move
 
-  #attr_reader :num_moves, :board
-
 
   def initialize
     print_intro
