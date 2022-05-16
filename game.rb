@@ -10,7 +10,7 @@ class Game
   @num_moves
   @move
 
-  attr_reader :num_moves, :board
+  #attr_reader :num_moves, :board
 
 
   def initialize
@@ -22,6 +22,24 @@ class Game
     @num_moves = 0
   end
 
+
+  def play
+    
+    until win? || @num_moves == 9     
+      switch_player
+      get_move
+      update_board
+    end
+  
+    display_result
+    puts 'Play again?'
+    ['y', 'Y'].include?(gets.chomp)  
+
+  end
+
+
+
+  private
 
   def get_move
     @num_moves += 1
@@ -48,9 +66,6 @@ class Game
     puts win? ? "#{@player.symbol} wins." : 'No winner.'
   end
 
-
-
-  private
 
   def print_intro
     puts "\n\nTic-tac-toe\n-----------\n"
