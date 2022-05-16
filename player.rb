@@ -13,7 +13,7 @@ class Player
     
 
   def make_move(board)
-    print "Enter a position 1-9: "
+    print "Player #{@symbol}, enter a position 1-9: "
     
     input = gets.chomp
     until validate(input, board)
@@ -22,13 +22,11 @@ class Player
     end
 
     @moves << input.to_i
-
     input.to_i
   end
 
 
   def win?
-    moves = [0, 1, 4, 8]
     wins = [
       [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7],
       [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]
@@ -50,7 +48,6 @@ class Player
     return false if board.include?(input.to_i)
     true
   end
-
 
 
 end

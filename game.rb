@@ -53,7 +53,7 @@ class Game
   private
 
   def print_intro
-    puts "Tic-tac-toe\n-----------\n"
+    puts "\n\nTic-tac-toe\n-----------\n"
   end
 
 
